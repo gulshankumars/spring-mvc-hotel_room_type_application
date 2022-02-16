@@ -1,9 +1,6 @@
 package com.sunglowsys.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -12,19 +9,29 @@ public class HotelRoomType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer id ;
-    private Integer hotelId ;
-    private Integer roomTypeId ;
+    private Long id;
 
-    public HotelRoomType(){
-        System.out.println("RatePlan object is creted:");
+    @Column(nullable = false)
+    private Integer hotelId;
+
+    @Column(nullable = true)
+    private Integer roomTypeId;
+
+
+    public HotelRoomType() {
+        System.out.println("RatePlan object is created:");
     }
 
-    public Integer getId() {
+    public HotelRoomType(Integer hotelId, Integer roomTypeId) {
+        this.hotelId = hotelId;
+        this.roomTypeId = roomTypeId;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

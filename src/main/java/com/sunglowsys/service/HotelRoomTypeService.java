@@ -1,19 +1,24 @@
 package com.sunglowsys.service;
 
 import com.sunglowsys.domain.HotelRoomType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface HotelRoomTypeService {
 
 
-    HotelRoomType create(HotelRoomType hotelRoomType);
+    HotelRoomType save(HotelRoomType hotelRoomType);
 
-    HotelRoomType update(HotelRoomType hotelRoomType, Integer id);
+    HotelRoomType update(HotelRoomType hotelRoomType, Long id);
 
-    List<HotelRoomType> findAll();
 
-    HotelRoomType findById(Integer id);
+    Page<HotelRoomType> findAll(Pageable pageable);
 
-    void delete(Integer id);
+    Optional<HotelRoomType> findById(Long id);
+
+    void delete(Long id);
+
 }
